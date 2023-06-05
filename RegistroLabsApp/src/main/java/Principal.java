@@ -1,4 +1,10 @@
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -15,9 +21,12 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     public Principal() {
-         this.setExtendedState(MAXIMIZED_BOTH);
+        Dimension screenSize= Toolkit.getDefaultToolkit().getScreenSize();
+        this.setSize(screenSize);
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.setUndecorated(true);
-        setDefaultCloseOperation(0);
+        this.setVisible(true);
+      //  setDefaultCloseOperation(0);
         initComponents();
        
     }
@@ -35,18 +44,22 @@ public class Principal extends javax.swing.JFrame {
         jbentradaprin = new javax.swing.JButton();
         jcprincipal = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setAlwaysOnTop(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setFocusableWindowState(false);
+        setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
+        setResizable(false);
+        setSize(Toolkit.getDefaultToolkit().getScreenSize());
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
         });
 
+        jPanel1.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jbentradaprin.setBackground(new java.awt.Color(0, 0, 0));
@@ -58,7 +71,7 @@ public class Principal extends javax.swing.JFrame {
                 jbentradaprinActionPerformed(evt);
             }
         });
-        jPanel1.add(jbentradaprin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, -1, -1));
+        jPanel1.add(jbentradaprin, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, -1, -1));
 
         jcprincipal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alumno", "Docente", "PAAE", "Egresado" }));
         jcprincipal.addActionListener(new java.awt.event.ActionListener() {
@@ -66,43 +79,48 @@ public class Principal extends javax.swing.JFrame {
                 jcprincipalActionPerformed(evt);
             }
         });
-        jPanel1.add(jcprincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
+        jPanel1.add(jcprincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Ubuntu Mono", 0, 24)); // NOI18N
         jLabel4.setText("Seleccione una opción");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, -1, 30));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, 30));
 
-        jLabel5.setBackground(new java.awt.Color(68, 174, 79));
-        jLabel5.setOpaque(true);
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 330, 300));
-
+        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\serv\\AppRegistroLabs\\RegistroLabsApp\\resources\\Imagenes\\esime.png")); // NOI18N
         jLabel2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jLabel2PropertyChange(evt);
             }
         });
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
+
+        jLabel5.setBackground(new java.awt.Color(68, 174, 79));
+        jLabel5.setOpaque(true);
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 330, 300));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\serv\\AppRegistroLabs\\RegistroLabsApp\\resources\\Imagenes\\fondo.jpg")); // NOI18N
+        jLabel3.setToolTipText("");
         jLabel3.setOpaque(true);
+        jLabel3.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 661, 390));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 741, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        getAccessibleContext().setAccessibleName("Jfprin");
 
         pack();
         setLocationRelativeTo(null);
@@ -166,7 +184,8 @@ String prin = (String)jcprincipal.getSelectedItem();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+               
+               new Principal();
             }
         });
     }
