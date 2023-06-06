@@ -28,7 +28,7 @@ public class Principal extends javax.swing.JFrame {
         this.setVisible(true);
       //  setDefaultCloseOperation(0);
         initComponents();
-       
+       new bloquear( this ).block();
     }
 
     /**
@@ -49,6 +49,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
         setFocusableWindowState(false);
         setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         setResizable(false);
