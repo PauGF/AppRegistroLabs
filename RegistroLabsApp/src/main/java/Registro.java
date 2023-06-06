@@ -41,6 +41,7 @@ public class Registro extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jbiniciarsesion = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -52,7 +53,7 @@ public class Registro extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Ubuntu Mono", 1, 20)); // NOI18N
-        jLabel3.setText("Numero de boleta");
+        jLabel3.setText("Numero de empleado");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 220, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Ubuntu Mono", 1, 20)); // NOI18N
@@ -69,6 +70,7 @@ public class Registro extends javax.swing.JFrame {
 
         jTextField1.setFont(new java.awt.Font("Ubuntu Mono", 0, 15)); // NOI18N
         jTextField1.setMinimumSize(new java.awt.Dimension(65, 25));
+        jTextField1.setPreferredSize(new java.awt.Dimension(65, 25));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -97,9 +99,22 @@ public class Registro extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
+        jbiniciarsesion.setBackground(new java.awt.Color(0, 0, 0));
+        jbiniciarsesion.setFont(new java.awt.Font("Ubuntu Mono", 0, 15)); // NOI18N
+        jbiniciarsesion.setForeground(new java.awt.Color(255, 255, 255));
+        jbiniciarsesion.setText("OK");
+        jbiniciarsesion.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jbiniciarsesion.setBorderPainted(false);
+        jbiniciarsesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbiniciarsesionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbiniciarsesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 610, 70, -1));
+
         jLabel2.setBackground(new java.awt.Color(255, 255, 255, 220));
         jLabel2.setOpaque(true);
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 760, 440));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 760, 480));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\serv\\AppRegistroLabs\\RegistroLabsApp\\resources\\Imagenes\\fondo.jpg")); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1430, 970));
@@ -126,6 +141,11 @@ public class Registro extends javax.swing.JFrame {
         new Docente().setVisible(true);       
 this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jbiniciarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbiniciarsesionActionPerformed
+        new Sesion().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbiniciarsesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,5 +195,6 @@ this.dispose();
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton jbiniciarsesion;
     // End of variables declaration//GEN-END:variables
 }
