@@ -71,7 +71,7 @@ public class Principal extends javax.swing.JFrame {
                 jbentradaprinActionPerformed(evt);
             }
         });
-        jPanel1.add(jbentradaprin, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, -1, -1));
+        jPanel1.add(jbentradaprin, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 580, -1, 20));
 
         jcprincipal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alumno", "Docente", "PAAE", "Egresado" }));
         jcprincipal.addActionListener(new java.awt.event.ActionListener() {
@@ -79,11 +79,11 @@ public class Principal extends javax.swing.JFrame {
                 jcprincipalActionPerformed(evt);
             }
         });
-        jPanel1.add(jcprincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, -1, -1));
+        jPanel1.add(jcprincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 540, 90, -1));
 
         jLabel4.setFont(new java.awt.Font("Ubuntu Mono", 0, 24)); // NOI18N
         jLabel4.setText("Seleccione una opción");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, 30));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, -1, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("D:\\serv\\AppRegistroLabs\\RegistroLabsApp\\resources\\Imagenes\\esime.png")); // NOI18N
         jLabel2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -91,33 +91,30 @@ public class Principal extends javax.swing.JFrame {
                 jLabel2PropertyChange(evt);
             }
         });
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, -1, -1));
 
-        jLabel5.setBackground(new java.awt.Color(68, 174, 79));
+        jLabel5.setBackground(new java.awt.Color(69, 174, 79,220));
         jLabel5.setOpaque(true);
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 330, 300));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, 360, 370));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setIcon(new javax.swing.ImageIcon("D:\\serv\\AppRegistroLabs\\RegistroLabsApp\\resources\\Imagenes\\fondo.jpg")); // NOI18N
         jLabel3.setToolTipText("");
+        jLabel3.setMaximumSize(Toolkit.getDefaultToolkit().getScreenSize() );
+        jLabel3.setMinimumSize(Toolkit.getDefaultToolkit().getScreenSize() );
         jLabel3.setOpaque(true);
         jLabel3.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 661, 390));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 930));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 741, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1383, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 936, Short.MAX_VALUE)
         );
 
         getAccessibleContext().setAccessibleName("Jfprin");

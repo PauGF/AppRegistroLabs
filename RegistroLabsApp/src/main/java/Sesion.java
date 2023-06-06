@@ -36,6 +36,7 @@ public class Sesion extends java.awt.Frame {
         jLabel2 = new javax.swing.JLabel();
 
         setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(255, 255, 255,200));
         setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -69,7 +70,8 @@ public class Sesion extends java.awt.Frame {
     }//GEN-LAST:event_exitForm
 
     private void jbcerrarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbcerrarsesionActionPerformed
-
+        new Principal().setVisible(true);
+            this.dispose();
     }//GEN-LAST:event_jbcerrarsesionActionPerformed
 
     /**
