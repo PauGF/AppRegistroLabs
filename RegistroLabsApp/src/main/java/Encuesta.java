@@ -16,7 +16,7 @@ public class Encuesta extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setUndecorated(true);
         initComponents();
-        
+         new bloquear( this ).block();
     }
 
     /**
