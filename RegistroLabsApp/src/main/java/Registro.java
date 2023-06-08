@@ -143,7 +143,7 @@ this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jbiniciarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbiniciarsesionActionPerformed
-        new Sesion().setVisible(true);
+        new Sesionok().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbiniciarsesionActionPerformed
 

@@ -8,13 +8,13 @@ import javax.swing.JFrame;
  *
  * @author galif
  */
-public class bloquear {
+public class bloquearsesion {
      private JFrame jframe=null;
     
     /**
      * Constructor de clase
      */
-    public bloquear( JFrame f )
+    public bloquearsesion( JFrame f )
     {
         this.jframe = f;
     }
@@ -35,7 +35,6 @@ public class bloquear {
      */
     public void front()
     {
-       jframe.setExtendedState( JFrame.MAXIMIZED_BOTH );//maximizado
         jframe.toFront();
     }
 }

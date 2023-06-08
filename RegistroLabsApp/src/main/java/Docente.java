@@ -1,6 +1,7 @@
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.geom.RoundRectangle2D;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 /*
@@ -108,6 +109,7 @@ public class Docente extends javax.swing.JFrame {
         jLabel4.setBackground(new java.awt.Color(69, 174, 79, 220));
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel4.setOpaque(true);
         jLabel4.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
@@ -139,7 +141,7 @@ public class Docente extends javax.swing.JFrame {
     }//GEN-LAST:event_jftnumeroempleadoActionPerformed
 
     private void jbiniciarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbiniciarsesionActionPerformed
-new Sesion().setVisible(true);       
+new Sesionok().setVisible(true);       
 this.dispose();
     }//GEN-LAST:event_jbiniciarsesionActionPerformed
 
