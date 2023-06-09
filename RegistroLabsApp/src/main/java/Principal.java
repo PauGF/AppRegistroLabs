@@ -26,7 +26,6 @@ public class Principal extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setUndecorated(true);
         this.setVisible(true);
-      //  setDefaultCloseOperation(0);
         initComponents();
        //new bloquear( this ).block();
     }

@@ -37,7 +37,6 @@ public class Sesionok extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setAlwaysOnTop(true);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(255, 255, 255,200));
         setFocusableWindowState(false);

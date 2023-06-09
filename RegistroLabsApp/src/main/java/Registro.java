@@ -15,6 +15,7 @@ public class Registro extends javax.swing.JFrame {
     public Registro() {
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setUndecorated(true);
+        this.setVisible(true);
         initComponents();
         //new bloquear( this ).block();
     }
@@ -43,7 +44,6 @@ public class Registro extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
         setUndecorated(true);
         setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
 
