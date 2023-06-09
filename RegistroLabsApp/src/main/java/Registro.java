@@ -18,8 +18,9 @@ public class Registro extends javax.swing.JFrame {
     public Registro() {
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setUndecorated(true);
+        this.setVisible(true);
         initComponents();
-         new bloquear( this ).block();
+        // new bloquear( this ).block(); descomentar al final
     }
 
     /**
@@ -46,7 +47,6 @@ public class Registro extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
         setUndecorated(true);
         setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
 
@@ -115,6 +115,8 @@ public class Registro extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255, 220));
         jLabel2.setOpaque(true);
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 760, 480));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1430, 970));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

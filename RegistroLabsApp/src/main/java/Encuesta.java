@@ -24,7 +24,7 @@ public class Encuesta extends javax.swing.JFrame {
         this.setUndecorated(true);
         this.setVisible(true);
         initComponents();
-       new bloquear( this ).block();
+      // new bloquear( this ).block(); descomentar al final
     }
 
     /**

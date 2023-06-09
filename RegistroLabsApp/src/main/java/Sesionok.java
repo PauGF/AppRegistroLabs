@@ -21,7 +21,7 @@ public class Sesionok extends javax.swing.JFrame {
         this.setUndecorated(true);
         this.setLocation(0, screenSize.height/3);
         initComponents();
-        new bloquearsesion( this ).block();
+       // new bloquearsesion( this ).block(); descomentar al final
     }
 
     /**
@@ -37,7 +37,6 @@ public class Sesionok extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setAlwaysOnTop(true);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(255, 255, 255,200));
         setFocusableWindowState(false);
@@ -47,6 +46,7 @@ public class Sesionok extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setText("<html>\n<center>\nC<br>\ne<br>\nr<br>\nr<br>\na<br>\nr <br>\n<br>\nS<br>\ne<br>\ns<br>\ni<br>\nó<br>\nn<br>\n</center>\n</html>");
         jButton1.setToolTipText("");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButton1.setPreferredSize(new java.awt.Dimension(14, 212));
