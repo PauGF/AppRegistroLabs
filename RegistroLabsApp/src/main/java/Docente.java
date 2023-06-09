@@ -22,7 +22,7 @@ public class Docente extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setUndecorated(true);
         initComponents();
-         new bloquear( this ).block();
+        // new bloquear( this ).block();
     }
 
     /**
@@ -96,6 +96,7 @@ public class Docente extends javax.swing.JFrame {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 540, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255, 0));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/atras.png"))); // NOI18N
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -108,10 +109,13 @@ public class Docente extends javax.swing.JFrame {
         jLabel4.setBackground(new java.awt.Color(69, 174, 79, 220));
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel4.setOpaque(true);
         jLabel4.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 290, 360, 280));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo.jpg"))); // NOI18N
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -137,8 +141,8 @@ public class Docente extends javax.swing.JFrame {
     }//GEN-LAST:event_jftnumeroempleadoActionPerformed
 
     private void jbiniciarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbiniciarsesionActionPerformed
-new Sesionok().setVisible(true);       
-this.dispose();
+        new Sesionok().setVisible(true);       
+        this.dispose();
     }//GEN-LAST:event_jbiniciarsesionActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

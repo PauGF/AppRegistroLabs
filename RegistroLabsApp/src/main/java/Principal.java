@@ -28,7 +28,7 @@ public class Principal extends javax.swing.JFrame {
         this.setVisible(true);
       //  setDefaultCloseOperation(0);
         initComponents();
-       new bloquear( this ).block();
+       //new bloquear( this ).block();
     }
 
     /**
@@ -49,7 +49,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setAlwaysOnTop(true);
         setFocusableWindowState(false);
         setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         setResizable(false);
@@ -72,7 +71,7 @@ public class Principal extends javax.swing.JFrame {
                 jbentradaprinActionPerformed(evt);
             }
         });
-        jPanel1.add(jbentradaprin, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 580, -1, 20));
+        jPanel1.add(jbentradaprin, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 580, -1, 20));
 
         jcprincipal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alumno", "Docente", "PAAE", "Egresado" }));
         jcprincipal.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +85,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel4.setText("Seleccione una opción");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, -1, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\serv\\AppRegistroLabs\\RegistroLabsApp\\resources\\Imagenes\\esime.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/esime.png"))); // NOI18N
         jLabel2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jLabel2PropertyChange(evt);
@@ -99,7 +98,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, 360, 370));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\serv\\AppRegistroLabs\\RegistroLabsApp\\resources\\Imagenes\\fondo.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo.jpg"))); // NOI18N
         jLabel3.setToolTipText("");
         jLabel3.setMaximumSize(Toolkit.getDefaultToolkit().getScreenSize() );
         jLabel3.setMinimumSize(Toolkit.getDefaultToolkit().getScreenSize() );
@@ -155,38 +154,14 @@ String prin = (String)jcprincipal.getSelectedItem();
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+    /*public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                
                new Principal();
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
