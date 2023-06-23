@@ -12,6 +12,8 @@ import java.net.URLEncoder;
 import org.json.JSONObject;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import org.json.JSONArray;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -60,6 +62,7 @@ private int valor;
         jLabel2 = new javax.swing.JLabel();
         jbregistro = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jptpass = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -70,6 +73,7 @@ private int valor;
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jlwel.setFont(new java.awt.Font("Ubuntu Mono", 1, 24)); // NOI18N
+        jlwel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlwel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jlwel, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 330, 280, 40));
 
@@ -121,6 +125,9 @@ private int valor;
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 20, 30));
 
+        jptpass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel1.add(jptpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, 280, -1));
+
         jLabel4.setBackground(new java.awt.Color(69, 174, 79, 220));
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -157,7 +164,7 @@ private int valor;
     private void jbiniciarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbiniciarsesionActionPerformed
        
         if(valor==4){
-            String password=  jftnumero.getText();
+            String password=  jptpass.getText();
             if(password.equals("1sl@2023")){
                 new Configuracion().setVisible(true);
                 this.dispose();
@@ -216,10 +223,12 @@ private int valor;
 
             // Procesar la respuesta
             String jsonRespuesta = respuesta.toString();
-            System.out.println(jsonRespuesta);
+            //System.out.println(jsonRespuesta);
 
             if(jsonRespuesta.contains("[{\"res\":-1}]")){
-                 System.out.println(jsonRespuesta);
+                JFrame jFrame = new JFrame();
+            JOptionPane.showMessageDialog(jFrame, "Usuario no encontrado, Registrate o Intentalo de nuevo");
+                
             }else{
                 // Leer el contenido de la respuesta
                     JSONArray jsonArray = new JSONArray(jsonRespuesta);
@@ -227,7 +236,7 @@ private int valor;
 
                     // Obtener el valor de "res"
                     int resValue = jsonObject.getInt("res");
-                    System.out.println("idAcceso es: " + resValue);
+                    //System.out.println("idAcceso es: " + resValue);
 
                     // Crear el archivo "idAcceso" y escribir la respuesta
                     FileWriter fileWriter = new FileWriter("idAcceso.txt");
@@ -260,7 +269,7 @@ private int valor;
                         
                         // Procesar la respuesta
                         String jsonRespuesta2 = respuesta2.toString();
-                        System.out.println(jsonRespuesta2);
+                        //System.out.println(jsonRespuesta2);
 
                         if(jsonRespuesta2.contains("true")){
                             new Encuestaok_1().setVisible(true);
@@ -346,5 +355,6 @@ private int valor;
     public javax.swing.JButton jbregistro;
     public javax.swing.JTextField jftnumero;
     public javax.swing.JLabel jlwel;
+    public javax.swing.JPasswordField jptpass;
     // End of variables declaration//GEN-END:variables
 }

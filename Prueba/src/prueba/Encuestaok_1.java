@@ -336,7 +336,7 @@ private String numeroLab, idAcceso, usu;
         String answers=p1+p2+p3+p4+p5+p6;
         
         
-        System.out.println(answers);
+       // System.out.println(answers);
         try {
             // Codificar los parámetros
            String parametros = "numLab=" + URLEncoder.encode(numeroLab, charset)
@@ -380,13 +380,13 @@ private String numeroLab, idAcceso, usu;
                 if (file.exists()) {
                     // Intentar borrar el archivo
                     boolean deleted = file.delete();
-                    if (deleted) {
-                        System.out.println("El archivo ha sido borrado exitosamente.");
-                    } else {
-                        System.out.println("No se pudo borrar el archivo.");
+                    if (deleted) {;
+                       // System.out.println("El archivo ha sido borrado exitosamente.");
+                    } else {;
+                       // System.out.println("No se pudo borrar el archivo.");
                     }
-                } else {
-                    System.out.println("El archivo no existe en la ruta especificada.");
+                } else {;
+                   // System.out.println("El archivo no existe en la ruta especificada.");
                 }
                 new Principal().setVisible(true);
                 this.dispose();

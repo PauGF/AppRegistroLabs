@@ -27,7 +27,7 @@ public class Prueba {
             try {
                 if (file.createNewFile()) {
                     // Archivo creado exitosamente
-                    System.out.println("Se ha creado el archivo.");
+                    //System.out.println("Se ha creado el archivo.");
                     
                     // Escribir el número 0 en el archivo
                     try {

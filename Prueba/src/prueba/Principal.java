@@ -132,6 +132,7 @@ public class Principal extends javax.swing.JFrame {
           dc.jlwel.setText("BIENVENIDO ALUMNO");//modifica el label para que diga bienvenido alumno
           placeholder = new TextPrompt("Numero de boleta",dc.jftnumero );
          placeholder.changeAlpha(0.75f);
+         dc.jptpass.setVisible(false);
           dc.setVisible(true);
             this.dispose();//cierra la pantalla principal sin terminar el programa
     }
@@ -140,6 +141,7 @@ public class Principal extends javax.swing.JFrame {
           dc.jlwel.setText("BIENVENIDO DOCENTE");//modifica el label para que diga bienvenido docente
            placeholder = new TextPrompt("Numero de empleado",dc.jftnumero );
          placeholder.changeAlpha(0.75f);
+         dc.jptpass.setVisible(false);
           dc.setVisible(true);
             this.dispose();//cierra la pantalla principal sin terminar el programa
         }
@@ -148,6 +150,7 @@ public class Principal extends javax.swing.JFrame {
           dc.jlwel.setText("BIENVENIDO PAAE");//modifica el label para que diga bienvenido paae
           placeholder = new TextPrompt("Numero de empleado",dc.jftnumero );
          placeholder.changeAlpha(0.75f);
+         dc.jptpass.setVisible(false);
           dc.setVisible(true);
             this.dispose();//cierra la pantalla principal sin terminar el programa
     }
@@ -156,16 +159,18 @@ public class Principal extends javax.swing.JFrame {
           dc.jlwel.setText("BIENVENIDO EGRESADO");//modifica el label para que diga bienvenido egresado
           placeholder = new TextPrompt("Numero de boleta",dc.jftnumero );
          placeholder.changeAlpha(0.75f);
+         dc.jptpass.setVisible(false);
           dc.setVisible(true);
             this.dispose();//cierra la pantalla principal sin terminar el programa
     }
         if(valor()==4){//esto es para que cuando lea udi haga lo de abajo
           Docente dc =new Docente(valor());
           dc.jlwel.setText("UDI");//modifica el label para que sepamos que estamos en la pantalla de udi
-          placeholder = new TextPrompt("Contraseña",dc.jftnumero );
+          placeholder = new TextPrompt("Contraseña",dc.jptpass );
          placeholder.changeAlpha(0.75f);
           dc.jbregistro.setVisible(false);//oculta el boton pra que se puedan registrar
           dc.jLabel2.setVisible(false);//oculta el label de la pregunta de registrar
+          dc.jftnumero.setVisible(false);
          dc.setVisible(true);
             this.dispose();//cierra la pantalla principal sin terminar el programa
         }
@@ -186,7 +191,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JFrame jFrame = new JFrame();
-        JOptionPane.showMessageDialog(jFrame, new javax.swing.ImageIcon(getClass().getResource("/imagenes/esime.png")));
+        JOptionPane.showMessageDialog(jFrame, new javax.swing.ImageIcon(getClass().getResource("/imagenes/guia.jpeg")));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

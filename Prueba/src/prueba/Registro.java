@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 /**
  *
  * @author galifu
@@ -207,11 +209,11 @@ private int valor;
             String jsonRespuesta = respuesta.toString();
             if (jsonRespuesta.contains("\"res\":true")) {
                 
-                 new Docente(valor).setVisible(true);
+                 new Principal().setVisible(true);
                  this.dispose();
             }else{
-                new Principal().setVisible(true);
-                 this.dispose();
+                JFrame jFrame = new JFrame();
+        JOptionPane.showMessageDialog(jFrame, "Error, Intentalo de nuevo");
             }
                 
             

@@ -132,7 +132,7 @@ private String usu;
 
             // Procesar la respuesta
             String jsonRespuesta = respuesta.toString();
-            System.out.println(jsonRespuesta);
+            //System.out.println(jsonRespuesta);
            
             if(jsonRespuesta.contains("[{\"res\":-1}]")){
                  System.out.println(jsonRespuesta);
@@ -144,13 +144,13 @@ private String usu;
                 if (file.exists()) {
                     // Intentar borrar el archivo
                     boolean deleted = file.delete();
-                    if (deleted) {
-                        System.out.println("El archivo ha sido borrado exitosamente.");
-                    } else {
-                        System.out.println("No se pudo borrar el archivo.");
+                    if (deleted) {;
+                      //  System.out.println("El archivo ha sido borrado exitosamente.");
+                    } else {;
+                       // System.out.println("No se pudo borrar el archivo.");
                     }
-                } else {
-                    System.out.println("El archivo no existe en la ruta especificada.");
+                } else {;
+                   // System.out.println("El archivo no existe en la ruta especificada.");
                 }
                 new Principal().setVisible(true);
                 this.dispose();
@@ -162,9 +162,7 @@ private String usu;
                 }
        
         
-        //no borres esto Paulina xc
-       // new Principal().setVisible(true);
-          //  this.dispose();
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
