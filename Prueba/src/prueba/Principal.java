@@ -190,8 +190,8 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JFrame jFrame = new JFrame();
-        JOptionPane.showMessageDialog(jFrame, new javax.swing.ImageIcon(getClass().getResource("/imagenes/guia.jpeg")));
+        new GuiaRapida().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

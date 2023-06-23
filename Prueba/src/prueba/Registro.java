@@ -4,6 +4,7 @@ package prueba;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
@@ -50,6 +51,7 @@ private int valor;
         jButton1 = new javax.swing.JButton();
         jbiniciarsesion = new javax.swing.JButton();
         jCdeptos = new javax.swing.JComboBox<>();
+        jlerror = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
@@ -123,6 +125,12 @@ private int valor;
         jCdeptos.setFont(new java.awt.Font("Ubuntu Mono", 0, 15)); // NOI18N
         jCdeptos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Coordinación de Enlace y Gestión Técnica", "Departamento de Capital Humano", "Departamento de Evaluación y Seguimiento Académico", "Departamento de Extensióm y Apoyos Educativos", "Departamento de Formación Científica Básica", "Departamento de Gestión Escolar", "Departamento de Ingeniería Eléctrica", "Departamento de Ingeniería en Comunicaciones y Eléctronica", "Departamento de Ingeniería en Control y Automatización", "Departamento de Ingeniería en Sistemas Automotrices", "Departamento de Ingeniería Fotónica", "Departamento de Innovación Educativa", "Departamento de Investigación", "Departamento de Mantenimiento y Servicios", "Departamento de Posgrado", "Departamento de Recursos Financieros", "Departamento de Recursos Materiales", "Departamento de Servicios Estudiantiles", "Dirección", "Sección de Estudios de Posgrado e Investigación", "Subdirección Académica", "Subdirección Administrativa", "Subdirección de Servicios Educativos e Integración Social", "Unidad de Tenología Educativa y Campus Virtual", "Unidad Politécnica de Integración Social" }));
         jPanel1.add(jCdeptos, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, 440, -1));
+
+        jlerror.setBackground(new java.awt.Color(255, 255, 255, 5));
+        jlerror.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        jlerror.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlerror.setOpaque(true);
+        jPanel1.add(jlerror, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 640, 760, 20));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255, 220));
         jLabel2.setOpaque(true);
@@ -212,8 +220,8 @@ private int valor;
                  new Principal().setVisible(true);
                  this.dispose();
             }else{
-                JFrame jFrame = new JFrame();
-        JOptionPane.showMessageDialog(jFrame, "Error, Intentalo de nuevo");
+                jlerror.setText("Error, Intentalo de nuevo");
+                jlerror.setBackground(Color.red);
             }
                 
             
@@ -246,6 +254,7 @@ private int valor;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbiniciarsesion;
     public javax.swing.JComboBox<String> jccarreras;
+    private javax.swing.JLabel jlerror;
     private javax.swing.JTextField jtcorreo;
     private javax.swing.JTextField jtnombre;
     private javax.swing.JTextField jtnum;

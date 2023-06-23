@@ -25,17 +25,17 @@ import java.util.logging.Logger;
  */
 public class Encuestaok_1 extends javax.swing.JFrame {
 private String numeroLab, idAcceso, usu;
-
+private int valor;
     /**
      * Creates new form Encuestaok
      */
-    public Encuestaok_1() {
+    public Encuestaok_1(int valor) {
         Dimension screenSize= Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(screenSize);
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setUndecorated(true);
         this.setVisible(true);
-        
+        this.valor=valor;
         initComponents();
          FileReader fileReader=null;
         try {
@@ -343,7 +343,9 @@ private String numeroLab, idAcceso, usu;
                     + "&answers=" + URLEncoder.encode(answers, charset)
                     + "&programms=" + URLEncoder.encode(programms, charset)
                     + "&suggestions=" + URLEncoder.encode( suggestions, charset)
+                    + "&idTipo=" + URLEncoder.encode( (valor+1)+ "", charset)
                     + "&idAcceso=" + URLEncoder.encode(idAcceso, charset);
+           
             
             // Crear la conexión HTTP POST
             URL urlObj = new URL(url);

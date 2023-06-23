@@ -1,6 +1,7 @@
 package prueba;
 
 
+import java.awt.Color;
 import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -54,6 +55,7 @@ private int valor;
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jlerror = new javax.swing.JLabel();
         jlwel = new javax.swing.JLabel();
         jftnumero = new javax.swing.JTextField();
         jbiniciarsesion = new javax.swing.JButton();
@@ -70,6 +72,12 @@ private int valor;
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jlerror.setBackground(new java.awt.Color(255, 255, 255, 5));
+        jlerror.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        jlerror.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlerror.setOpaque(true);
+        jPanel1.add(jlerror, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 500, 320, 30));
 
         jlwel.setFont(new java.awt.Font("Ubuntu Mono", 1, 24)); // NOI18N
         jlwel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -222,11 +230,11 @@ private int valor;
 
             // Procesar la respuesta
             String jsonRespuesta = respuesta.toString();
-            //System.out.println(jsonRespuesta);
+            System.out.println(jsonRespuesta);
 
-            if(jsonRespuesta.contains("[{\"res\":-1}]")){
-                JFrame jFrame = new JFrame();
-            JOptionPane.showMessageDialog(jFrame, "Usuario no encontrado, Registrate o Intentalo de nuevo");
+            if(jsonRespuesta.contains("\"res\":-1")){
+                jlerror.setText("Usuario no encontrado");
+                jlerror.setBackground(Color.red);
                 
             }else{
                 // Leer el contenido de la respuesta
@@ -271,7 +279,7 @@ private int valor;
                         //System.out.println(jsonRespuesta2);
 
                         if(jsonRespuesta2.contains("true")){
-                            new Encuestaok_1().setVisible(true);
+                            new Encuestaok_1(valor).setVisible(true);
                             this.dispose();
                             
                         }else{
@@ -353,6 +361,7 @@ private int valor;
     private javax.swing.JButton jbiniciarsesion;
     public javax.swing.JButton jbregistro;
     public javax.swing.JTextField jftnumero;
+    private javax.swing.JLabel jlerror;
     public javax.swing.JLabel jlwel;
     public javax.swing.JPasswordField jptpass;
     // End of variables declaration//GEN-END:variables
