@@ -58,6 +58,8 @@ private int valor;
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLnumeror.setFont(new java.awt.Font("Ubuntu Mono", 1, 20)); // NOI18N
+        jLnumeror.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLnumeror.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLnumeror, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 450, 20));
 
         jLabel4.setFont(new java.awt.Font("Ubuntu Mono", 1, 20)); // NOI18N
@@ -69,6 +71,7 @@ private int valor;
         jPanel1.add(jccarreras, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, -1, -1));
 
         jLcarrdepto.setFont(new java.awt.Font("Ubuntu Mono", 1, 20)); // NOI18N
+        jLcarrdepto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLcarrdepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, 450, 20));
 
         jtnum.setFont(new java.awt.Font("Ubuntu Mono", 0, 15)); // NOI18N
@@ -203,9 +206,14 @@ private int valor;
             // Procesar la respuesta
             String jsonRespuesta = respuesta.toString();
             if (jsonRespuesta.contains("\"res\":true")) {
-                 new Sesionok().setVisible(true);
+                
+                 new Docente(valor).setVisible(true);
+                 this.dispose();
+            }else{
+                new Principal().setVisible(true);
                  this.dispose();
             }
+                
             
         } catch (Exception e) {
             e.printStackTrace();

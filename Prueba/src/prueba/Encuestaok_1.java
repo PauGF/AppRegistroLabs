@@ -6,12 +6,25 @@ package prueba;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author galif
  */
 public class Encuestaok_1 extends javax.swing.JFrame {
+private String numeroLab, idAcceso, usu;
 
     /**
      * Creates new form Encuestaok
@@ -22,7 +35,39 @@ public class Encuestaok_1 extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setUndecorated(true);
         this.setVisible(true);
+        
         initComponents();
+         FileReader fileReader=null;
+        try {
+            fileReader = new FileReader("Computadora.txt");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String archivo="";
+        try {
+            archivo = bufferedReader.readLine();
+        } catch (IOException ex) {
+            Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            bufferedReader.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            String[] valores =archivo.split(",");
+             numeroLab=valores[2];
+         try{
+              // Leer el contenido del archivo "idAcceso.txt"
+             fileReader = new FileReader("idAcceso.txt");
+             bufferedReader = new BufferedReader(fileReader);
+             idAcceso = bufferedReader.readLine();
+            bufferedReader.close();
+         } catch(Exception e)
+         {
+              e.printStackTrace();
+         }
         //descomentar esto 
         //new bloquear( this ).block();
     }
@@ -39,11 +84,11 @@ public class Encuestaok_1 extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        jc4 = new javax.swing.JComboBox<>();
+        jc5 = new javax.swing.JComboBox<>();
+        jc1 = new javax.swing.JComboBox<>();
+        jc2 = new javax.swing.JComboBox<>();
+        jc3 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -53,20 +98,22 @@ public class Encuestaok_1 extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTsuggestions = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        jTprogramms = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jc6 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         setSize(Toolkit.getDefaultToolkit().getScreenSize());
 
+        jPanel1.setAutoscrolls(true);
         jPanel1.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255,2));
@@ -77,15 +124,15 @@ public class Encuestaok_1 extends javax.swing.JFrame {
         jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel9.setOpaque(true);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        jc4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        jc5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        jc1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        jc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        jc3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
 
         jLabel1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jLabel1.setText("1. ¿Cómo consideras el control de acceso a la sala de cómputo?");
@@ -111,13 +158,13 @@ public class Encuestaok_1 extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jLabel8.setText("Comentarios: felicitaciones, sugerencias, opiniones y/o quejas:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTsuggestions.setColumns(20);
+        jTsuggestions.setRows(5);
+        jScrollPane1.setViewportView(jTsuggestions);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        jTprogramms.setColumns(20);
+        jTprogramms.setRows(5);
+        jScrollPane2.setViewportView(jTprogramms);
 
         jButton1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jButton1.setText("Enviar");
@@ -155,6 +202,8 @@ public class Encuestaok_1 extends javax.swing.JFrame {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/2.png"))); // NOI18N
 
+        jc6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -178,18 +227,19 @@ public class Encuestaok_1 extends javax.swing.JFrame {
                                         .addComponent(jLabel3))
                                     .addGap(266, 266, 266)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jComboBox6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jComboBox5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jComboBox4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jc3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jc2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jc1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel4)
                                         .addComponent(jLabel5))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(102, 102, 102)))
+                                        .addComponent(jc5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jc4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jc6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(111, 111, 111)))
                             .addComponent(jLabel7)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1059, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1059, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,53 +248,58 @@ public class Encuestaok_1 extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(555, 555, 555)
                         .addComponent(jButton1))
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 1146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 1246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1271, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jc3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jc4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jc5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jc6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         jScrollPane3.setViewportView(jPanel1);
@@ -253,13 +308,11 @@ public class Encuestaok_1 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1266, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1272, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 832, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 938, Short.MAX_VALUE)
         );
 
         pack();
@@ -268,17 +321,85 @@ public class Encuestaok_1 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // boton enviar 
         //tiene que agradecer por contestr y luego tiene que mandr al inicio de sesión
+        String url = "http://148.204.37.66/serverRegistroLabs/survey.php";
+        String charset = "UTF-8";
+        // Datos a enviar en la solicitud POST
+        String programms=jTprogramms.getText();
+        String suggestions=jTsuggestions.getText();
+        String p1= (String) jc1.getSelectedItem();
+        String p2= (String) jc2.getSelectedItem();
+        String p3= (String) jc3.getSelectedItem();
+        String p4= (String) jc4.getSelectedItem();
+        String p5= (String) jc5.getSelectedItem();
+        String p6= (String) jc6.getSelectedItem();
         
+        String answers=p1+p2+p3+p4+p5+p6;
+        
+        
+        System.out.println(answers);
+        try {
+            // Codificar los parámetros
+           String parametros = "numLab=" + URLEncoder.encode(numeroLab, charset)
+                    + "&answers=" + URLEncoder.encode(answers, charset)
+                    + "&programms=" + URLEncoder.encode(programms, charset)
+                    + "&suggestions=" + URLEncoder.encode( suggestions, charset)
+                    + "&idAcceso=" + URLEncoder.encode(idAcceso, charset);
+            
+            // Crear la conexión HTTP POST
+            URL urlObj = new URL(url);
+            HttpURLConnection conn = (HttpURLConnection) urlObj.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setDoOutput(true);
+            
+            // Enviar los parámetros en el cuerpo de la solicitud
+            try (DataOutputStream wr = new DataOutputStream(conn.getOutputStream())) {
+                wr.writeBytes(parametros);
+                wr.flush();
+            }
+            
+            // Obtener la respuesta del servidor
+            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String linea;
+            StringBuilder respuesta = new StringBuilder();
+            while ((linea = in.readLine()) != null) {
+                respuesta.append(linea);
+            }
+            in.close();
+            conn.disconnect();
+            
+            // Procesar la respuesta
+            String jsonRespuesta = respuesta.toString();
+            if (jsonRespuesta.contains("\"res\":true")) {
+                 new Sesionok(usu).setVisible(true);
+                 this.dispose();
+            }else{
+                //Borra el archivo idAcceso
+                // Crear un objeto File con la ruta del archivo
+                File file = new File("idAcceso.txt");
+                // Verificar si el archivo existe antes de borrarlo
+                if (file.exists()) {
+                    // Intentar borrar el archivo
+                    boolean deleted = file.delete();
+                    if (deleted) {
+                        System.out.println("El archivo ha sido borrado exitosamente.");
+                    } else {
+                        System.out.println("No se pudo borrar el archivo.");
+                    }
+                } else {
+                    System.out.println("El archivo no existe en la ruta especificada.");
+                }
+                new Principal().setVisible(true);
+                this.dispose();
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -296,7 +417,13 @@ public class Encuestaok_1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTprogramms;
+    private javax.swing.JTextArea jTsuggestions;
+    private javax.swing.JComboBox<String> jc1;
+    private javax.swing.JComboBox<String> jc2;
+    private javax.swing.JComboBox<String> jc3;
+    private javax.swing.JComboBox<String> jc4;
+    private javax.swing.JComboBox<String> jc5;
+    private javax.swing.JComboBox<String> jc6;
     // End of variables declaration//GEN-END:variables
 }

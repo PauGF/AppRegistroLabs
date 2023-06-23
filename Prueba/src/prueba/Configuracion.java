@@ -6,6 +6,7 @@ package prueba;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -13,6 +14,8 @@ import java.net.URLEncoder;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /**
@@ -20,12 +23,38 @@ import org.json.JSONObject;
  * @author galif
  */
 public class Configuracion extends javax.swing.JFrame {
-
+private String idComputadora, numero, numeroLab;
     /**
      * Creates new form Configuracion
      */
     public Configuracion() {
         initComponents();
+        FileReader fileReader=null;
+        try {
+            fileReader = new FileReader("Computadora.txt");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String archivo="";
+        try {
+            archivo = bufferedReader.readLine();
+        } catch (IOException ex) {
+            Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            bufferedReader.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            String[] valores =archivo.split(",");
+             idComputadora =valores[0];
+             numero = valores[1];
+             numeroLab=valores[2];
+            jLidcompu.setText(idComputadora);
+            jtnumpc.setText(numero);
+            jclab.setSelectedIndex(Integer.valueOf(numeroLab) == 0 ? 0 : Integer.valueOf(numeroLab)-1);
     }
 
     /**
@@ -43,7 +72,7 @@ public class Configuracion extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jclab = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jLidcompu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,7 +108,7 @@ public class Configuracion extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(126, 126, 126))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLidcompu, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(120, 120, 120))
         );
         layout.setVerticalGroup(
@@ -88,7 +117,7 @@ public class Configuracion extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLidcompu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -113,41 +142,30 @@ public class Configuracion extends javax.swing.JFrame {
         this.dispose();*/
        String url = "http://148.204.37.66/serverRegistroLabs/signinPC.php";
         String charset = "UTF-8";
-
+        String parametros;
         // Datos a enviar en la solicitud POST
-        String numero = jtnumpc.getText() ;
-        int numeroLabt = jclab.getSelectedIndex()+1;
-        String numeroLab= String.valueOf(numeroLabt);
+        int num=jclab.getSelectedIndex()+1;
+        
         try {
             String filePath = "Computadora.txt";
         StringBuilder contenidoArchivo = new StringBuilder();
         try {
-            FileReader fileReader = new FileReader(filePath);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String linea;
-            while ((linea = bufferedReader.readLine()) != null) {
-                contenidoArchivo.append(linea);
-            }
-            bufferedReader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String idComputadora = contenidoArchivo.toString();
-        String parametros;
+           
         if(idComputadora.equals("0")){
         
             // Construir los parámetros POST
-             parametros = "numero=" + URLEncoder.encode(numero, charset)
-                    + "&numeroLab=" + URLEncoder.encode(numeroLab, charset);
+             parametros = "num=" + URLEncoder.encode(jtnumpc.getText(), charset)
+                    + "&numLab=" + URLEncoder.encode(num+"", charset);
              
             //mostrar msg 
             
         }else{
-             parametros = "numero=" + URLEncoder.encode(numero, charset)
-                    + "&numeroLab=" + URLEncoder.encode(numeroLab, charset)
+             parametros = "num=" + URLEncoder.encode(jtnumpc.getText(), charset)
+                    + "&numLab=" + URLEncoder.encode(num+"", charset)
                     + "&idComputadora=" + URLEncoder.encode(idComputadora, charset);
             
         }
+        
         // Crear la conexión HTTP POST
             URL urlObj = new URL(url);
             HttpURLConnection conn = (HttpURLConnection) urlObj.openConnection();
@@ -156,12 +174,12 @@ public class Configuracion extends javax.swing.JFrame {
 
             // Enviar los parámetros en el cuerpo de la solicitud
             try (DataOutputStream wr = new DataOutputStream(conn.getOutputStream())) {
-            wr.writeBytes(parametros);
+                wr.writeBytes(parametros);
                 wr.flush();
             }
             // Obtener la respuesta del servidor
             BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            String linea;
+            String linea="";
             StringBuilder respuesta = new StringBuilder();
             while ((linea = in.readLine()) != null) {
                 respuesta.append(linea);
@@ -179,37 +197,13 @@ public class Configuracion extends javax.swing.JFrame {
             System.out.println("Computadora es: " + resValue);
             // Crear el archivo "Computadora" y escribir la respuesta
             FileWriter fileWriter = new FileWriter("Computadora.txt");
-            fileWriter.write(String.valueOf(resValue) + numero + numeroLab);
+            fileWriter.write((String.valueOf(resValue).equals("0")? idComputadora : String.valueOf(resValue) ) +","+ jtnumpc.getText()+"," + num);
             fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         
-        
-          /*
-            // Crear la conexión HTTP POST
-            URL urlObj = new URL(url);
-            HttpURLConnection conn = (HttpURLConnection) urlObj.openConnection();
-            conn.setRequestMethod("POST");
-            conn.setDoOutput(true);
-
-            // Enviar los parámetros en el cuerpo de la solicitud
-            try (DataOutputStream wr = new DataOutputStream(conn.getOutputStream())) {
-      //          wr.writeBytes(parametros);
-                wr.flush();
-            }
-
-            // Obtener la respuesta del servidor
-            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            String linea;
-            StringBuilder respuesta = new StringBuilder();
-            while ((linea = in.readLine()) != null) {
-                respuesta.append(linea);
-            }
-            in.close();
-
-            // Procesar la respuesta
-            String jsonRespuesta = respuesta.toString();
-            System.out.println(jsonRespuesta);
-           */ 
-            
+          
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -225,7 +219,7 @@ public class Configuracion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLidcompu;
     private javax.swing.JComboBox<String> jclab;
     private javax.swing.JTextField jtnumpc;
     // End of variables declaration//GEN-END:variables

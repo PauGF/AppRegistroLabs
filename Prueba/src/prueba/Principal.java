@@ -3,6 +3,8 @@ package prueba;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -40,6 +42,7 @@ public class Principal extends javax.swing.JFrame {
         jbentradaprin = new javax.swing.JButton();
         jcprincipal = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -81,6 +84,17 @@ public class Principal extends javax.swing.JFrame {
         jLabel4.setText("Seleccione una opción");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, -1, 30));
 
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Guia Rápida");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 640, 360, -1));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/esime.png"))); // NOI18N
         jLabel2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -111,40 +125,45 @@ public class Principal extends javax.swing.JFrame {
         
         
        // String prin = (String)jcprincipal.getSelectedItem();
-       
+       TextPrompt placeholder= null; 
        //extrae la informacion del combobox
       if(valor()==0) {//esto es para que cuando lea alumno haga lo de abajo
          Docente dc =new Docente(valor());
           dc.jlwel.setText("BIENVENIDO ALUMNO");//modifica el label para que diga bienvenido alumno
-          dc.jftnumero.setText("Numero de boleta");//modifica le text del textfield
+          placeholder = new TextPrompt("Numero de boleta",dc.jftnumero );
+         placeholder.changeAlpha(0.75f);
           dc.setVisible(true);
             this.dispose();//cierra la pantalla principal sin terminar el programa
     }
         if( valor()==1){//esto es para que cuando lea docente haga lo de abajo
             Docente dc =new Docente(valor());
           dc.jlwel.setText("BIENVENIDO DOCENTE");//modifica el label para que diga bienvenido docente
-          dc.jftnumero.setText("Numero de empleado");//modifica le text del textfield
+           placeholder = new TextPrompt("Numero de empleado",dc.jftnumero );
+         placeholder.changeAlpha(0.75f);
           dc.setVisible(true);
             this.dispose();//cierra la pantalla principal sin terminar el programa
         }
         if(valor()==3) {//esto es para que cuando lea paae haga lo de abajo
           Docente dc =new Docente(valor());
           dc.jlwel.setText("BIENVENIDO PAAE");//modifica el label para que diga bienvenido paae
-          dc.jftnumero.setText("Numero de empleado");//modifica le text del textfield
+          placeholder = new TextPrompt("Numero de empleado",dc.jftnumero );
+         placeholder.changeAlpha(0.75f);
           dc.setVisible(true);
             this.dispose();//cierra la pantalla principal sin terminar el programa
     }
         if(valor()==2){//esto es para que cuando lea egresado haga lo de abajo
           Docente dc =new Docente(valor());
           dc.jlwel.setText("BIENVENIDO EGRESADO");//modifica el label para que diga bienvenido egresado
-          dc.jftnumero.setText("Numero de boleta");//modifica le text del textfield
+          placeholder = new TextPrompt("Numero de boleta",dc.jftnumero );
+         placeholder.changeAlpha(0.75f);
           dc.setVisible(true);
             this.dispose();//cierra la pantalla principal sin terminar el programa
     }
         if(valor()==4){//esto es para que cuando lea udi haga lo de abajo
           Docente dc =new Docente(valor());
           dc.jlwel.setText("UDI");//modifica el label para que sepamos que estamos en la pantalla de udi
-          dc.jftnumero.setText("Contraseña");//modifica le text del textfield
+          placeholder = new TextPrompt("Contraseña",dc.jftnumero );
+         placeholder.changeAlpha(0.75f);
           dc.jbregistro.setVisible(false);//oculta el boton pra que se puedan registrar
           dc.jLabel2.setVisible(false);//oculta el label de la pregunta de registrar
          dc.setVisible(true);
@@ -165,6 +184,11 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowActivated
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JFrame jFrame = new JFrame();
+        JOptionPane.showMessageDialog(jFrame, new javax.swing.ImageIcon(getClass().getResource("/imagenes/esime.png")));
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -178,6 +202,7 @@ public class Principal extends javax.swing.JFrame {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
