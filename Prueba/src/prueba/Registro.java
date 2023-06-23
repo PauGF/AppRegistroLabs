@@ -26,8 +26,7 @@ private int valor;
         this.setUndecorated(true);
        this.valor=valor;
         initComponents();
-        //descomentar esto 
-        //new bloquear( this ).block();
+        new bloquear( this ).block();
     }
 
     /**
@@ -54,7 +53,8 @@ private int valor;
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setAlwaysOnTop(true);
         setUndecorated(true);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

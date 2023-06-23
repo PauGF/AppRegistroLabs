@@ -26,9 +26,8 @@ public class Principal extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);//maximiza la pantalla para que no se haga bb
         this.setUndecorated(true);//le quita los cosos de maximizar, minimizar y el tachecito 
         this.setVisible(true);//esto solo es para que se abra xd
-        initComponents();//inicia todos los componentes alv 
-        //descomentar la siguiente linea al finalizar xd
-       //new bloquear( this ).block();//esto llama la clase de bloquear que la manda cada 50 milisegundos y no se pueda cerrar 
+        initComponents();//inicia todos los componentes 
+        new bloquear( this ).block();//esto llama la clase de bloquear que la manda cada 50 milisegundos y no se pueda cerrar 
     } 
    public int valor(){
        
@@ -48,6 +47,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setAlwaysOnTop(true);
         setFocusableWindowState(false);
         setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         setSize(Toolkit.getDefaultToolkit().getScreenSize());

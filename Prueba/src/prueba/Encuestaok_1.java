@@ -68,8 +68,7 @@ private String numeroLab, idAcceso, usu;
          {
               e.printStackTrace();
          }
-        //descomentar esto 
-        //new bloquear( this ).block();
+        new bloquear( this ).block();
     }
 
     /**
@@ -108,7 +107,8 @@ private String numeroLab, idAcceso, usu;
         jLabel10 = new javax.swing.JLabel();
         jc6 = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setAlwaysOnTop(true);
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         setSize(Toolkit.getDefaultToolkit().getScreenSize());

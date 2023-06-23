@@ -35,9 +35,7 @@ private int valor;
         this.setUndecorated(true);
          this.valor=valor;
         initComponents();
-        
-        //esto  tambien se descomenta
-        // new bloquear( this ).block();
+        new bloquear( this ).block();
   
     }
 
@@ -67,6 +65,7 @@ private int valor;
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
