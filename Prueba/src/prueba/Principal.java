@@ -23,9 +23,9 @@ public class Principal extends javax.swing.JFrame {
          
         Dimension screenSize= Toolkit.getDefaultToolkit().getScreenSize();//obtiene el tamaño de la pantalla
         this.setSize(screenSize);//asigna el tamao de la patalla o algo así
-        this.setExtendedState(MAXIMIZED_BOTH);//maximiza la pantalla para que no se haga bb
+        this.setExtendedState(MAXIMIZED_BOTH);//maximiza la pantalla para que no se haga 
         this.setUndecorated(true);//le quita los cosos de maximizar, minimizar y el tachecito 
-        this.setVisible(true);//esto solo es para que se abra xd
+        this.setVisible(true);//esto solo es para que se abra 
         initComponents();//inicia todos los componentes 
         new bloquear( this ).block();//esto llama la clase de bloquear que la manda cada 50 milisegundos y no se pueda cerrar 
     } 
@@ -41,7 +41,8 @@ public class Principal extends javax.swing.JFrame {
         jbentradaprin = new javax.swing.JButton();
         jcprincipal = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        apagar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -84,16 +85,27 @@ public class Principal extends javax.swing.JFrame {
         jLabel4.setText("Seleccione una opción");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, -1, 30));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Guia Rápida");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        apagar.setBackground(new java.awt.Color(0, 0, 0));
+        apagar.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        apagar.setForeground(new java.awt.Color(255, 255, 255));
+        apagar.setText("Apagar Computadora");
+        apagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                apagarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 640, 360, -1));
+        jPanel1.add(apagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 680, 360, -1));
+
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Guía Rápida");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 640, 360, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/esime.png"))); // NOI18N
         jLabel2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -130,7 +142,7 @@ public class Principal extends javax.swing.JFrame {
       if(valor()==0) {//esto es para que cuando lea alumno haga lo de abajo
          Docente dc =new Docente(valor());
           dc.jlwel.setText("BIENVENIDO ALUMNO");//modifica el label para que diga bienvenido alumno
-          placeholder = new TextPrompt("Numero de boleta",dc.jftnumero );
+          placeholder = new TextPrompt("Número de boleta",dc.jftnumero );
          placeholder.changeAlpha(0.75f);
          dc.jptpass.setVisible(false);
           dc.setVisible(true);
@@ -139,7 +151,7 @@ public class Principal extends javax.swing.JFrame {
         if( valor()==1){//esto es para que cuando lea docente haga lo de abajo
             Docente dc =new Docente(valor());
           dc.jlwel.setText("BIENVENIDO DOCENTE");//modifica el label para que diga bienvenido docente
-           placeholder = new TextPrompt("Numero de empleado",dc.jftnumero );
+           placeholder = new TextPrompt("Número de empleado",dc.jftnumero );
          placeholder.changeAlpha(0.75f);
          dc.jptpass.setVisible(false);
           dc.setVisible(true);
@@ -148,7 +160,7 @@ public class Principal extends javax.swing.JFrame {
         if(valor()==3) {//esto es para que cuando lea paae haga lo de abajo
           Docente dc =new Docente(valor());
           dc.jlwel.setText("BIENVENIDO PAAE");//modifica el label para que diga bienvenido paae
-          placeholder = new TextPrompt("Numero de empleado",dc.jftnumero );
+          placeholder = new TextPrompt("Número de empleado",dc.jftnumero );
          placeholder.changeAlpha(0.75f);
          dc.jptpass.setVisible(false);
           dc.setVisible(true);
@@ -157,7 +169,7 @@ public class Principal extends javax.swing.JFrame {
         if(valor()==2){//esto es para que cuando lea egresado haga lo de abajo
           Docente dc =new Docente(valor());
           dc.jlwel.setText("BIENVENIDO EGRESADO");//modifica el label para que diga bienvenido egresado
-          placeholder = new TextPrompt("Numero de boleta",dc.jftnumero );
+          placeholder = new TextPrompt("Número de boleta",dc.jftnumero );
          placeholder.changeAlpha(0.75f);
          dc.jptpass.setVisible(false);
           dc.setVisible(true);
@@ -189,10 +201,15 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowActivated
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void apagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarActionPerformed
+        //apagar la computadora
+        
+    }//GEN-LAST:event_apagarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         new GuiaRapida().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,7 +224,8 @@ public class Principal extends javax.swing.JFrame {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton apagar;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

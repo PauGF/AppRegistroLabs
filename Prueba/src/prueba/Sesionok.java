@@ -30,7 +30,6 @@ private String usu;
         this.setLocation(0, screenSize.height/3);
         this.usu=usu;
         initComponents();
-        jLabel1.setText(usu);
         new bloquearsesion( this ).block();
     }
 
@@ -44,7 +43,7 @@ private String usu;
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jbapagar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -54,6 +53,7 @@ private String usu;
         setMinimumSize(new java.awt.Dimension(50, 240));
 
         jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setText("<html>\n<center>\nC<br>\ne<br>\nr<br>\nr<br>\na<br>\nr <br>\n<br>\nS<br>\ne<br>\ns<br>\ni<br>\nó<br>\nn<br>\n</center>\n</html>");
         jButton1.setToolTipText("");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -66,29 +66,39 @@ private String usu;
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
-        jLabel1.setText("<html>\n<center>\nU<br>\nD<br>\nI<br>\n<br>\nE<br>\nS<br>\nI<br>\nM<br>\nE<br>\n</center>\n<html>\n");
-        jLabel1.setPreferredSize(new java.awt.Dimension(16, 88));
+        jbapagar.setBackground(new java.awt.Color(204, 204, 204));
+        jbapagar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jbapagar.setText("<html> <center> A<br> P<br> A<br> G<br> A<br> R <br>  </center> </html>");
+        jbapagar.setToolTipText("");
+        jbapagar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbapagar.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jbapagar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jbapagar.setPreferredSize(new java.awt.Dimension(14, 212));
+        jbapagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbapagarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbapagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(jbapagar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -166,6 +176,81 @@ private String usu;
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jbapagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbapagarActionPerformed
+        // Apagar la computadora
+        String url = "http://148.204.37.66/serverRegistroLabs/logout.php";
+        String charset = "UTF-8";
+
+        try {
+            // Leer el contenido del archivo "idAcceso.txt"
+            FileReader fileReader = new FileReader("idAcceso.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String idAcceso = bufferedReader.readLine();
+            bufferedReader.close();
+
+            // Construir los parámetros de la solicitud POST
+            String parametros = "idAcceso=" + idAcceso;
+
+            // Crear la conexión HTTP POST
+            URL urlObj = new URL(url);
+            HttpURLConnection conn = (HttpURLConnection) urlObj.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setDoOutput(true);
+
+            // Enviar los parámetros en el cuerpo de la solicitud
+            try (DataOutputStream wr = new DataOutputStream(conn.getOutputStream())) {
+                wr.writeBytes(parametros);
+                wr.flush();
+            }
+
+            // Obtener la respuesta del servidor
+            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String linea;
+            StringBuilder respuesta = new StringBuilder();
+            while ((linea = in.readLine()) != null) {
+                respuesta.append(linea);
+            }
+            in.close();
+
+            // Procesar la respuesta
+            String jsonRespuesta = respuesta.toString();
+            //System.out.println(jsonRespuesta);
+           
+            if(jsonRespuesta.contains("[{\"res\":-1}]")){
+                 System.out.println(jsonRespuesta);
+            }else{
+                //Borra el archivo idAcceso
+                // Crear un objeto File con la ruta del archivo
+                File file = new File("idAcceso.txt");
+                // Verificar si el archivo existe antes de borrarlo
+                if (file.exists()) {
+                    // Intentar borrar el archivo
+                    boolean deleted = file.delete();
+                    if (deleted) {;
+                      //  System.out.println("El archivo ha sido borrado exitosamente.");
+                    } else {;
+                       // System.out.println("No se pudo borrar el archivo.");
+                    }
+                } else {;
+                   // System.out.println("El archivo no existe en la ruta especificada.");
+                }
+                String comando=  "shutdown -s";
+                try{
+                    Runtime.getRuntime().exec(comando);
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+                    }
+
+
+                } catch (Exception e) {
+            e.printStackTrace();
+                }
+       
+        
+        
+    }//GEN-LAST:event_jbapagarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -179,6 +264,6 @@ private String usu;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jbapagar;
     // End of variables declaration//GEN-END:variables
 }

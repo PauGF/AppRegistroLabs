@@ -123,7 +123,7 @@ private int valor;
         jPanel1.add(jbiniciarsesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 610, 70, -1));
 
         jCdeptos.setFont(new java.awt.Font("Ubuntu Mono", 0, 15)); // NOI18N
-        jCdeptos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Coordinación de Enlace y Gestión Técnica", "Departamento de Capital Humano", "Departamento de Evaluación y Seguimiento Académico", "Departamento de Extensióm y Apoyos Educativos", "Departamento de Formación Científica Básica", "Departamento de Gestión Escolar", "Departamento de Ingeniería Eléctrica", "Departamento de Ingeniería en Comunicaciones y Eléctronica", "Departamento de Ingeniería en Control y Automatización", "Departamento de Ingeniería en Sistemas Automotrices", "Departamento de Ingeniería Fotónica", "Departamento de Innovación Educativa", "Departamento de Investigación", "Departamento de Mantenimiento y Servicios", "Departamento de Posgrado", "Departamento de Recursos Financieros", "Departamento de Recursos Materiales", "Departamento de Servicios Estudiantiles", "Dirección", "Sección de Estudios de Posgrado e Investigación", "Subdirección Académica", "Subdirección Administrativa", "Subdirección de Servicios Educativos e Integración Social", "Unidad de Tenología Educativa y Campus Virtual", "Unidad Politécnica de Integración Social" }));
+        jCdeptos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Coordinación de Enlace y Gestión Técnica", "Departamento de Capital Humano", "Departamento de Evaluación y Seguimiento Académico", "Departamento de Extensión y Apoyos Educativos", "Departamento de Formación Científica Básica", "Departamento de Gestión Escolar", "Departamento de Ingeniería Eléctrica", "Departamento de Ingeniería en Comunicaciones y Eléctronica", "Departamento de Ingeniería en Control y Automatización", "Departamento de Ingeniería en Sistemas Automotrices", "Departamento de Ingeniería Fotónica", "Departamento de Innovación Educativa", "Departamento de Investigación", "Departamento de Mantenimiento y Servicios", "Departamento de Posgrado", "Departamento de Recursos Financieros", "Departamento de Recursos Materiales", "Departamento de Servicios Estudiantiles", "Dirección", "Sección de Estudios de Posgrado e Investigación", "Subdirección Académica", "Subdirección Administrativa", "Subdirección de Servicios Educativos e Integración Social", "Unidad de Tenología Educativa y Campus Virtual", "Unidad Politécnica de Integración Social" }));
         jPanel1.add(jCdeptos, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, 440, -1));
 
         jlerror.setBackground(new java.awt.Color(255, 255, 255, 5));
@@ -176,6 +176,17 @@ private int valor;
             String correo = jtcorreo.getText();
             int idTipot= valor+1;
             int idDeptoCarrerat;
+            String idUsuariov = jtnum.getText();
+            String nombrev = jtnombre.getText();
+            String correov = jtcorreo.getText();
+            idUsuariov.replaceAll(" ", "");
+            nombrev.replaceAll(" ", "");
+            correov.replaceAll(" ", "");
+            if(idUsuariov.length()==0||nombrev.length()==0||correov.length()==0){
+                jlerror.setBackground(Color.red);
+                jlerror.setText("Favor de llenar todos los campos");
+            }
+            else{
             if(valor==3)
                 idDeptoCarrerat=jCdeptos.getSelectedIndex()+1;
             else
@@ -228,6 +239,7 @@ private int valor;
         } catch (Exception e) {
             e.printStackTrace();
         }
+            }
         
     }//GEN-LAST:event_jbiniciarsesionActionPerformed
 

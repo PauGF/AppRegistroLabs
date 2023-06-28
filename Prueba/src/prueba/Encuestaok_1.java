@@ -4,6 +4,7 @@
  */
 package prueba;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.BufferedReader;
@@ -96,6 +97,7 @@ private int valor;
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLerror = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTsuggestions = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -110,7 +112,6 @@ private int valor;
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         setSize(Toolkit.getDefaultToolkit().getScreenSize());
 
         jPanel1.setAutoscrolls(true);
@@ -124,15 +125,15 @@ private int valor;
         jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel9.setOpaque(true);
 
-        jc4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        jc4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "1", "2", "3", "4", "5" }));
 
-        jc5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        jc5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "1", "2", "3", "4", "5" }));
 
-        jc1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        jc1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "1", "2", "3", "4", "5" }));
 
-        jc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        jc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "1", "2", "3", "4", "5" }));
 
-        jc3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        jc3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "1", "2", "3", "4", "5" }));
 
         jLabel1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jLabel1.setText("1. ¿Cómo consideras el control de acceso a la sala de cómputo?");
@@ -150,13 +151,16 @@ private int valor;
         jLabel5.setText("5. ¿Los equipos tienen los programas necesarios para llevar a cabo tus actividades acedémicas y escolares?");
 
         jLabel6.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
-        jLabel6.setText("6. ¿Consideras que el equipo de computo es adecuado pra el uso de la comunidad?");
+        jLabel6.setText("6. ¿Consideras que el equipo de computo es adecuado para el uso de la comunidad?");
 
         jLabel7.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jLabel7.setText("De la pregunta 5. ¿Consideras algún programa en específico para realizar tus actividades acedémicas y escolares?");
 
         jLabel8.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jLabel8.setText("Comentarios: felicitaciones, sugerencias, opiniones y/o quejas:");
+
+        jLerror.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        jLerror.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         jTsuggestions.setColumns(20);
         jTsuggestions.setRows(5);
@@ -202,7 +206,7 @@ private int valor;
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/2.png"))); // NOI18N
 
-        jc6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        jc6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "1", "2", "3", "4", "5" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -213,6 +217,11 @@ private int valor;
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(160, 160, 160)
                         .addComponent(jLabel11))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1271, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(122, 122, 122)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,13 +255,10 @@ private int valor;
                             .addComponent(jLabel8)
                             .addComponent(jLabel6)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(555, 555, 555)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1271, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addComponent(jLerror, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -296,7 +302,9 @@ private int valor;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLerror, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(187, Short.MAX_VALUE))
@@ -326,15 +334,18 @@ private int valor;
         // Datos a enviar en la solicitud POST
         String programms=jTprogramms.getText();
         String suggestions=jTsuggestions.getText();
-        String p1= (String) jc1.getSelectedItem();
-        String p2= (String) jc2.getSelectedItem();
-        String p3= (String) jc3.getSelectedItem();
-        String p4= (String) jc4.getSelectedItem();
-        String p5= (String) jc5.getSelectedItem();
-        String p6= (String) jc6.getSelectedItem();
+        String p1=  jc1.getSelectedIndex()-1+"";//
+        String p2=  jc2.getSelectedIndex()-1+"";//
+        String p3=  jc3.getSelectedIndex()-1+"";//
+        String p4=  jc4.getSelectedIndex()-1+"";//
+        String p5=  jc5.getSelectedIndex()-1+"";//
+        String p6=  jc6.getSelectedIndex()-1+"";//
         
         String answers=p1+p2+p3+p4+p5+p6;
-        
+        if(jc1.getSelectedItem().equals("-")|jc2.getSelectedItem().equals("-")|jc3.getSelectedItem().equals("-")|jc4.getSelectedItem().equals("-")|jc5.getSelectedItem().equals("-")|jc6.getSelectedItem().equals("-")){
+            jLerror.setBackground(Color.red);
+            jLerror.setText("Selecciona una opción valida");
+        }else{
         
        // System.out.println(answers);
         try {
@@ -397,6 +408,7 @@ private int valor;
         } catch (Exception e) {
             e.printStackTrace();
         }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -413,6 +425,7 @@ private int valor;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLerror;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

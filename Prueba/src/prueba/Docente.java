@@ -1,6 +1,5 @@
 package prueba;
-
-
+import java.io.File;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.io.BufferedReader;
@@ -13,8 +12,6 @@ import java.net.URLEncoder;
 import org.json.JSONObject;
 import java.io.FileReader;
 import java.io.IOException;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import org.json.JSONArray;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -82,7 +79,7 @@ private int valor;
         jlwel.setFont(new java.awt.Font("Ubuntu Mono", 1, 24)); // NOI18N
         jlwel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlwel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jlwel, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 330, 280, 40));
+        jPanel1.add(jlwel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 330, 340, 40));
 
         jftnumero.setFont(new java.awt.Font("Liberation Mono", 0, 15)); // NOI18N
         jftnumero.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -110,7 +107,7 @@ private int valor;
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 540, -1, 20));
 
         jbregistro.setForeground(new java.awt.Color(51, 51, 255));
-        jbregistro.setText("Registrate");
+        jbregistro.setText("Regístrate");
         jbregistro.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jbregistro.setBorderPainted(false);
         jbregistro.setContentAreaFilled(false);
@@ -244,9 +241,10 @@ private int valor;
                     // Obtener el valor de "res"
                     int resValue = jsonObject.getInt("res");
                     //System.out.println("idAcceso es: " + resValue);
-
+                    String fileac = "idAcceso.txt";
+                    File file = new File(fileac);
                     // Crear el archivo "idAcceso" y escribir la respuesta
-                    FileWriter fileWriter = new FileWriter("idAcceso.txt");
+                    FileWriter fileWriter = new FileWriter(file);
                     fileWriter.write(String.valueOf(resValue));
                     fileWriter.close();
                     String url2 = "http://148.204.37.66/serverRegistroLabs/checkAccess.php";
@@ -287,6 +285,7 @@ private int valor;
                             this.dispose();
                         }
                     }
+                    
                 }
             } catch (Exception e) {
                 e.printStackTrace();

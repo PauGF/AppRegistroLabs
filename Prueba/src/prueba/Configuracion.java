@@ -91,7 +91,7 @@ private String idComputadora, numero, numeroLab;
 
         jLabel3.setText("Laboratorio");
 
-        jclab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Labratorio de diseño", "Laboratorio Pabellón" }));
+        jclab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laboratorio de diseño", "Laboratorio Pabellón" }));
 
         jButton1.setText("Guardar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
