@@ -3,8 +3,6 @@ package prueba;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -77,6 +75,11 @@ public class Principal extends javax.swing.JFrame {
         jcprincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcprincipalActionPerformed(evt);
+            }
+        });
+        jcprincipal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jcprincipalKeyReleased(evt);
             }
         });
         jPanel1.add(jcprincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 540, 90, -1));
@@ -203,13 +206,22 @@ public class Principal extends javax.swing.JFrame {
 
     private void apagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarActionPerformed
         //apagar la computadora
-        
+        String comando=  "shutdown -s";
+                try{
+                    Runtime.getRuntime().exec(comando);
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
     }//GEN-LAST:event_apagarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         new GuiaRapida().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jcprincipalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jcprincipalKeyReleased
+        
+    }//GEN-LAST:event_jcprincipalKeyReleased
 
     /**
      * @param args the command line arguments

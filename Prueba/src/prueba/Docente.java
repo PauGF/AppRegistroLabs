@@ -2,6 +2,8 @@ package prueba;
 import java.io.File;
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import static java.awt.event.KeyEvent.VK_ENTER;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.FileWriter;
@@ -12,6 +14,7 @@ import java.net.URLEncoder;
 import org.json.JSONObject;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.JButton;
 import org.json.JSONArray;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -24,6 +27,7 @@ import org.json.JSONArray;
  */
 public class Docente extends javax.swing.JFrame {
 private int valor;
+   
     /**
      * Creates new form Alumnos
      */
@@ -88,6 +92,11 @@ private int valor;
                 jftnumeroActionPerformed(evt);
             }
         });
+        jftnumero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jftnumeroKeyReleased(evt);
+            }
+        });
         jPanel1.add(jftnumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, 280, -1));
 
         jbiniciarsesion.setBackground(new java.awt.Color(0, 0, 0));
@@ -130,6 +139,11 @@ private int valor;
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 20, 30));
 
         jptpass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jptpass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jptpassKeyReleased(evt);
+            }
+        });
         jPanel1.add(jptpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, 280, -1));
 
         jLabel4.setBackground(new java.awt.Color(69, 174, 79, 220));
@@ -292,6 +306,7 @@ private int valor;
             }
         }
     }//GEN-LAST:event_jbiniciarsesionActionPerformed
+ 
 
     private void jbregistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbregistroActionPerformed
        //este boton te manda a registrarte
@@ -339,6 +354,16 @@ private int valor;
         new Principal().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jftnumeroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jftnumeroKeyReleased
+        //evento para poder darle enter cuando se pone la contraseña 
+        if (evt.getKeyCode()==VK_ENTER) jbiniciarsesion.doClick();
+    }//GEN-LAST:event_jftnumeroKeyReleased
+
+    private void jptpassKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jptpassKeyReleased
+        //evento para poder darle enter cuando se pone el usuario
+        if (evt.getKeyCode()==VK_ENTER) jbiniciarsesion.doClick();
+    }//GEN-LAST:event_jptpassKeyReleased
 
     /**
      * @param args the command line arguments
