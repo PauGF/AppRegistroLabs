@@ -342,7 +342,7 @@ private int valor;
         String p6=  jc6.getSelectedIndex()-1+"";//
         
         String answers=p1+p2+p3+p4+p5+p6;
-        if(jc1.getSelectedItem().equals("-")|jc2.getSelectedItem().equals("-")|jc3.getSelectedItem().equals("-")|jc4.getSelectedItem().equals("-")|jc5.getSelectedItem().equals("-")|jc6.getSelectedItem().equals("-")){
+        if(jc1.getSelectedItem().equals("-")||jc2.getSelectedItem().equals("-")||jc3.getSelectedItem().equals("-")||jc4.getSelectedItem().equals("-")||jc5.getSelectedItem().equals("-")||jc6.getSelectedItem().equals("-")){
             jLerror.setBackground(Color.red);
             jLerror.setText("Selecciona una opción valida");
         }else{
